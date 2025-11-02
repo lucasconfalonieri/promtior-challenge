@@ -19,10 +19,18 @@ export default function ChatInput({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-end gap-2 bg-surface/40 border border-borderColor/40 rounded-xl p-3 shadow-card"
-    >
+      <form
+        onSubmit={handleSubmit}
+        className="
+          flex
+          items-end
+          gap-2
+          bg-surface/30
+          rounded-xl
+          p-3
+          shadow-card
+        "
+      >
       <textarea
         className="flex-1 resize-none bg-transparent text-textPrimary placeholder-textPrimary/40 outline-none text-sm leading-relaxed max-h-32"
         placeholder="Ask something about Promtior..."
