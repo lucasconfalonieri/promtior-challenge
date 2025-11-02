@@ -1,0 +1,15 @@
+langchain
+langchain-openai
+langchain-community
+langchain-text-splitters
+langserve
+fastapi
+uvicorn[standard]
+sse-starlette
+faiss-cpu
+
+python-dotenv
+pypdf
+beautifulsoup4
+requests
+tiktoken
