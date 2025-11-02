@@ -22,7 +22,11 @@ to answer questions about Promtior.
    - Exposes the RAG chain at `/rag`.
 
 ## Environment variables
-See `.env.example`.
+`.env.example`:
+    OPENAI_API_KEY=sk-xxx
+    OPENAI_MODEL=gpt-4o-mini
+    OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+
 
 ## Run locally
 ```bash
