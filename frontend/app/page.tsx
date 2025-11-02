@@ -17,11 +17,7 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   async function handleSend(userText: string) {
-    const newUserMessage: ChatBubbleProps = {
-      role: "user",
-      text: userText,
-    };
-
+    const newUserMessage: ChatBubbleProps = { role: "user", text: userText };
     setMessages((prev) => [...prev, newUserMessage]);
     setLoading(true);
 
@@ -31,7 +27,6 @@ export default function HomePage() {
       role: "assistant",
       text: answer,
     };
-
     setMessages((prev) => [...prev, assistantMessage]);
     setLoading(false);
   }
@@ -43,41 +38,89 @@ export default function HomePage() {
   }, [messages]);
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
-      <div className="w-full max-w-2xl flex flex-col gap-4">
-        <header className="text-center">
-          <div className="text-xs font-semibold tracking-wide text-accent mb-1">
-            PROMTIOR • AI ASSISTANT
+    <main
+      className="
+        h-screen
+        w-screen
+        text-textPrimary
+        bg-[rgb(21,29,89)]
+        flex
+        justify-center
+      "
+      style={{
+        display: "grid",
+        gridTemplateRows: "auto 1fr auto",
+      }}
+    >
+      <header
+        className="
+          px-4
+          py-4
+          flex
+          flex-col
+          items-center
+          text-center
+          max-w-4xl
+          w-full
+          mx-auto
+        "
+      >
+        <div className="text-[0.7rem] font-semibold tracking-wide text-accent mb-1">
+          PROMTIOR • AI ASSISTANT
+        </div>
+        <h1 className="text-lg font-semibold text-textPrimary">
+          Ask about Promtior
+        </h1>
+        <p className="text-[0.75rem] text-textPrimary/60">
+          Retrieval-Augmented Generation using Promtior knowledge.
+        </p>
+      </header>
+
+      <section
+        ref={scrollRef}
+        className="
+          overflow-y-auto
+          px-12
+          py-4
+          flex
+          flex-col
+          gap-8
+          max-w-4xl
+          w-full
+          mx-auto
+          scroll-area
+        "
+      >
+        {messages.map((m, i) => (
+          <ChatBubble key={i} role={m.role} text={m.text} />
+        ))}
+
+        {loading && (
+          <div className="text-[0.7rem] text-textPrimary/50 italic">
+            Thinking...
           </div>
-          <h1 className="text-xl font-semibold text-textPrimary">
-            Ask about Promtior
-          </h1>
-          <p className="text-[0.8rem] text-textPrimary/60">
-            Retrieval-Augmented Generation using Promtior knowledge.
-          </p>
-        </header>
+        )}
+      </section>
 
-        <section
-          ref={scrollRef}
-          className="flex-1 min-h-[360px] max-h-[400px] overflow-y-auto rounded-xl border border-borderColor/40 bg-surface/30 shadow-card p-4 flex flex-col gap-4"
-        >
-          {messages.map((m, i) => (
-            <ChatBubble key={i} role={m.role} text={m.text} />
-          ))}
-
-          {loading && (
-            <div className="text-[0.7rem] text-textPrimary/50 italic">
-              Thinking...
-            </div>
-          )}
-        </section>
-
+      <div
+        className="
+          border-t border-borderColor/40
+          px-4
+          py-4
+          flex
+          flex-col
+          gap-3
+          max-w-4xl
+          w-full
+          mx-auto
+        "
+      >
         <ChatInput onSend={handleSend} disabled={loading} />
 
-        <footer className="text-center text-[0.7rem] text-textPrimary/40">
+        <footer className="text-center text-[0.65rem] leading-snug text-textPrimary/40">
           <div>Powered by RAG • LangChain • FAISS • OpenAI</div>
           <div className="text-textPrimary/30">
-            Answers are based only on Promtior internal & public sources.
+            Answers are based only on Promtior internal &amp; public sources.
           </div>
         </footer>
       </div>

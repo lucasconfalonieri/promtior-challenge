@@ -6,3 +6,11 @@ body {
   @apply bg-background text-textPrimary antialiased;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", "Segoe UI", sans-serif;
 }
+
+
+.scroll-area {
+  scrollbar-width: none; 
+}
+.scroll-area::-webkit-scrollbar {
+  display: none; 
+}
