@@ -46,10 +46,14 @@ def get_rag_chain():
 
     template = """
                 You are an AI assistant that answers questions using the provided context.
-                If the answer is not explicitly contained in the context, say:
-                "I don't have that information."
-
-                Be concise and factual. Answer in the language asked.
+                If the answer is not in the context, say:
+                "I don't have that information based on Promtior's available data."
+                Rules:
+                - Do not hallucinate.
+                - Answer in the language asked.
+                - Be concise and factual.
+                - If you're asked something generic like 'what is AI', tie it back to how Promtior positions itself (if and only if the context supports it).
+                Be concise and factual. 
 
                 Context:
                 {context}
