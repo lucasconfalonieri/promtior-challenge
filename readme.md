@@ -38,7 +38,10 @@ The assistant indexes Promtior information (website content, the provided compan
 - Validated that the same chain can run locally and can also be started on an AWS EC2 instance with environment variables and no code changes.
 
 ## Architecture Diagram
-
+[![Promtior RAG Architecture](doc/diagram.png)](https://d2studio.ai/diagrams/812192233)
+<p align="center">
+  <a href="https://d2studio.ai/diagrams/812192233">View interactive diagram</a>
+</p>
 
 ## Tech Stack
 **Retrieval & LLM**
