@@ -72,3 +72,5 @@ npm run dev
 Then open http://localhost:3000
 
 ## Live Link
+
+[http://34.229.12.36:3000/](http://34.229.12.36:3000/)
