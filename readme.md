@@ -1,5 +1,9 @@
 # Promtior RAG Challenge
 
+## Live Link
+
+[http://34.228.22.204:3000/](http://34.228.22.204:3000/) || [http://ec2-34-228-22-204.compute-1.amazonaws.com:3000/](http://ec2-34-228-22-204.compute-1.amazonaws.com:3000/)
+
 ## Project Overview
 Promtior AI Assistant is a Retrieval-Augmented Generation (RAG) chatbot that can answer questions specifically about Promtior (e.g. “What services does Promtior offer?” and “When was the company founded?”).
 
@@ -70,7 +74,3 @@ npm install
 npm run dev
 ```
 Then open http://localhost:3000
-
-## Live Link
-
-[http://34.229.12.36:3000/](http://34.229.12.36:3000/)
