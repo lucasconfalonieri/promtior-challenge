@@ -26,3 +26,8 @@ Thumbs.db
 
 backend/data/vectorstore/*
 !backend/data/vectorstore/.gitkeep
+
+infra/.terraform/
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/*.tfstate*
