@@ -20,7 +20,12 @@ export default function Suggestions({ onPick }: Props) {
           <button
             key={q}
             onClick={() => onPick(q)}
-            className="text-left text-sm bg-surface/30 hover:bg-surface/50 rounded-lg px-3 py-2 transition border border-transparent hover:border-accent/30"
+            className="
+              btn-gradient
+              px-4 py-2 rounded-xl text-sm text-left
+              transition transform hover:-translate-y-[1px]
+              focus-visible:ring-0
+            "
           >
             {q}
           </button>

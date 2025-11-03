@@ -44,7 +44,7 @@ export default function HomePage() {
   return (
     <main
       className="
-        h-screen w-screen text-textPrimary bg-[rgb(21,29,89)]
+        h-screen w-screen text-textPrimary bg-app
         flex justify-center
       "
       style={{ display: "grid", gridTemplateRows: "auto 1fr auto" }}
@@ -57,7 +57,7 @@ export default function HomePage() {
           max-w-4xl w-full mx-auto
         "
       >
-        <div className="text-[0.7rem] font-semibold tracking-wide text-accent mb-1">
+        <div className="text-[11px] tracking-[0.18em] text-accentRose/90">
           PROMTIOR • AI ASSISTANT
         </div>
         <h1 className="text-lg font-semibold text-textPrimary">Ask about Promtior</h1>
@@ -88,7 +88,7 @@ export default function HomePage() {
 
       <div
         className="
-          border-t border-borderColor/40 px-4 py-4 flex flex-col gap-3
+          border-t border-borderColor px-4 py-4 flex flex-col gap-3
           max-w-4xl w-full mx-auto
         "
       >
