@@ -1,0 +1,82 @@
+direction: right 
+
+Client: { 
+    label: "Chat UI" 
+    icon: "./icons/browser.svg" 
+} 
+
+AWS: { 
+    label: "AWS EC2" 
+    icon: https://i.d2studio.ai/hl8xbx/EC2.png 
+}
+
+FE: { 
+    label: "Frontend" 
+    icon: https://i.d2studio.ai/hl8xbx/Next.png 
+} 
+
+BE: { 
+    label: "Backend" 
+    icon: https://i.d2studio.ai/hl8xbx/FastAPI.png 
+} 
+
+OS: { 
+    label: "Ubuntu" 
+    icon: https://i.d2studio.ai/hl8xbx/ubuntu.png 
+}  
+
+RAG: { 
+    label: "RAG" 
+    icon: https://i.d2studio.ai/hl8xbx/RAG.png 
+    
+    CHAIN: "RAG Chain" 
+    RET: "Retriever (k=4)" 
+} 
+
+KB: { 
+    label: "Knowledge Base" 
+}
+    
+VS: { 
+    label: "FAISS Vector Store" 
+    shape: cylinder 
+    icon: https://i.d2studio.ai/hl8xbx/FAISS.png 
+} 
+
+SOURCES: { 
+    label: "Sources" 
+    icon: https://i.d2studio.ai/hl8xbx/archives.png 
+    
+    SRC1: "promtior.ai (web)" 
+    SRC2: "promtior_facts.md" 
+    SRC3: "PDF" 
+} 
+
+ING: { 
+    label: "ingest.py" 
+    icon: https://icons.terrastruct.com/dev/python.svg 
+} 
+
+OpenAI: { 
+    label: "OpenAI" 
+    icon: https://i.d2studio.ai/hl8xbx/OpenAI.png 
+    
+    EMB: "Embeddings\ntext-embedding-3-*" 
+    LLM: "Chat Model\ngpt-4o-mini" 
+} 
+
+Client -> AWS.FE: "Interact" 
+AWS.FE -> AWS.BE: "POST /rag/invoke" 
+AWS.BE -> RAG.CHAIN: "Build prompt" 
+RAG.CHAIN -> RAG.RET: "retrieve(context)" 
+RAG.RET -> KB.VS: "similarity_search" KB.VS -> RAG.RET: "top-k chunks" 
+RAG.CHAIN -> OpenAI.LLM: "Prompt(context + question)" 
+OpenAI.LLM -> AWS.BE: "Answer" 
+AWS.BE -> AWS.FE: "output" 
+AWS.FE -> Client: "Render" 
+
+KB.SOURCES.SRC1 -> ING: "crawl + parse" 
+KB.SOURCES.SRC2 -> ING: "load" 
+KB.SOURCES.SRC3 -> ING: "load" 
+ING -> OpenAI.EMB: "embed_documents()" 
+OpenAI.EMB -> KB.VS: "vectors + save_local"
